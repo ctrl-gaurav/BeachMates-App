@@ -1,11 +1,11 @@
+import 'package:b2b/constants/colors.dart';
+import 'package:b2b/screens/live_events_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:b2b/FirstScreen.dart';
 import 'package:b2b/SecondScreen.dart';
 import 'package:b2b/ThirdScreen.dart';
 
 class Tabbar extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,7 +32,7 @@ class _TabContainerIndexedStackState extends State<TabContainerIndexedStack> {
   void initState() {
     super.initState();
     listScreens = [
-      FirstScreen(),
+      LiveEvents(),
       SecondScreen(),
       ThirdScreen(),
     ];
@@ -40,21 +40,21 @@ class _TabContainerIndexedStackState extends State<TabContainerIndexedStack> {
 
   @override
   Widget build(BuildContext context) {
-
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
         body: IndexedStack(
           index: _currentIndex,
           children: [
-            FirstScreen(),
+            LiveEvents(),
             SecondScreen(),
             ThirdScreen(),
           ],
         ),
         bottomNavigationBar: CurvedNavigationBar(
-          backgroundColor: Colors.yellowAccent,
-          color: Colors.orangeAccent[100],
+          height: 60,
+          backgroundColor: kwhite,
+          color: kyellow,
           buttonBackgroundColor: Colors.lightBlueAccent[100],
           index: _currentIndex,
           onTap: (int index) {
