@@ -1,3 +1,4 @@
+import 'package:b2b/constants/live_events_categories.dart';
 import 'package:flutter/material.dart';
 import 'package:b2b/constants/colors.dart';
 
@@ -16,7 +17,12 @@ class _LiveEventsState extends State<LiveEvents> {
           children: [
             Container(
               width: size.width,
-              padding: EdgeInsets.all(25),
+              padding: EdgeInsets.only(
+                top: 15,
+                right: 25,
+                bottom: 20,
+                left: 25,
+              ),
               decoration: BoxDecoration(
                 color: kblue,
                 borderRadius: BorderRadius.only(
@@ -25,19 +31,37 @@ class _LiveEventsState extends State<LiveEvents> {
                 ),
               ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "Live\nEvents",
                     style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 30,
                       fontWeight: FontWeight.w600,
-                      letterSpacing: 5,
+                      letterSpacing: 8,
                     ),
                   ),
+                  SizedBox(height: 18),
                   Row(
-                    children: [
-                      Image.asset("assets/images/jetski.png"),
-                    ],
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: liveEventsCategories.map((item) {
+                      return Column(
+                        children: [
+                          Image.asset(item.image),
+                          SizedBox(
+                            height: (item.category != "Jet Ski") ? 9 : 0,
+                          ),
+                          Text(
+                            item.category,
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      );
+                    }).toList(),
                   ),
                 ],
               ),
