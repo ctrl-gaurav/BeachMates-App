@@ -1,3 +1,4 @@
+import 'package:b2b/tab_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:b2b/screens/live_events_screen.dart';
 import 'package:flutter/services.dart';
@@ -22,6 +23,11 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
+      initialRoute: TabContainerIndexedStack.id,
+      routes: {
+        TabContainerIndexedStack.id: (context) =>
+            TabContainerIndexedStack(),
+      },
       home: LiveEvents(),
     );
   }
