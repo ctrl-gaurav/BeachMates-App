@@ -33,14 +33,8 @@ class _LiveEventsState extends State<LiveEvents> {
                       shrinkWrap: true,
                       itemCount: snapshot.data.docs.length,
                       itemBuilder: (context, index) {
-                        EventModel eventModel = EventModel(
-                          id: snapshot.data.docs[index]["id"],
-                          title: snapshot.data.docs[index]["title"],
-                          postedBy: snapshot.data.docs[index]["postedBy"],
-                          description: snapshot.data.docs[index]["description"],
-                          allpeople: snapshot.data.docs[index]["allpeople"],
-                          comments: snapshot.data.docs[index]["comments"],
-                          category: snapshot.data.docs[index]["category"],
+                        EventModel eventModel = getEventModel(
+                          documentSnapshot: snapshot.data.docs[index],
                         );
                         return LiveEventsCard(
                           size: size,
