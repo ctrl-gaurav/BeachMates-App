@@ -10,7 +10,9 @@
         <!--========== CSS ==========-->
         <link rel="stylesheet" href="assets/css/styles.css">
 
-        <title>Beach Brew</title>
+        <title>Beach Mates</title>
+
+        <link rel="icon" type="image/svg" href="assets/img/Beach_mate.svg">
     </head>
     <body>
         <!--========== SCROLL TOP ==========-->
@@ -21,14 +23,15 @@
         <!--========== HEADER ==========-->
         <header class="l-header" id="header">
             <nav class="nav bd-container">
-                <a href="#" class="nav__logo">Beach Brew</a>
+                <a href="#" class="nav__logo">Beach Mates</a>
 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                        <li class="nav__item"><a href="#share" class="nav__link">Our App</a></li>
-                        <!-- <li class="nav__item"><a href="#decoration" class="nav__link">Decorations</a></li> -->
-                        <li class="nav__item"><a href="#accessory" class="nav__link">Team</a></li>
+                        <li class="nav__item"><a href="#meet" class="nav__link">Meet People</a></li>
+                        <li class="nav__item"><a href="#live" class="nav__link">Live Events</a></li>
+                        <li class="nav__item"><a href="#check" class="nav__link">Check Around</a></li>
+                        <li class="nav__item"><a href="#team" class="nav__link">Our Team</a></li>
 
                         <li><i class='bx bx-toggle-left change-theme' id="theme-button"></i></li>
                     </ul>
@@ -45,19 +48,20 @@
             <section class="home" id="home">
                 <div class="home__container bd-container bd-grid">
                     <div class="home__img">
-                        <img src="assets/img/B2B_Logo.svg" alt="">
+                        <img src="assets/img/Beach_mate.svg" alt="">
                     </div>
 
                     <div class="home__data">
-                        <h1 class="home__title">Beach Brew</h1>
-                        <p class="home__description">Summer is here! Planning go to beach for a fun time? We've got your back! Know the place, meet new people, join events and enjoy your time with Beach Brew!</p>
+                        <h1 class="home__title">Beach Mates</h1>
+                        <p class="home__description">Summer is here! Planning go to beach for a fun time? We've got your back! Know the place, meet new people, join events and enjoy your time with Beach Mates!</p>
                         <a href="#" class="button">Install Now!</a>
                     </div>   
                 </div>
             </section>
 
+            <!--========== SHARE INFO ==========-->
             <!--========== MEET PEOPLE ==========-->
-            <section class="share section bd-container" id="share">
+            <section class="share section bd-container" id="meet">
                 <div class="share__container bd-grid">
                     <div class="share__data">
                         <h2 class="section-title-center">Meet New People</h2>
@@ -65,14 +69,14 @@
                         <!-- <a href="#" class="button">Get the App!</a> -->
                     </div>
 
-                    <div class="share__img">
-                        <img src="assets/img/phoneimg.png" alt="">
+                    <div class="share__img img__change">
+                        <img src="assets/img/R_meet_left.png" alt="">
                     </div>
                 </div>
             </section>
 
-            <!--========== LIVE EVENTS ==========changes in the next line-->
-            <section class="share section bd-container" >
+            <!--========== LIVE EVENTS ==========-->
+            <section class="share section bd-container" id="live">
                 <div class="share__container bd-grid">
                     <div class="home__data">
                         <h2 class="section-title-center">Live Events</h2>
@@ -80,151 +84,83 @@
                         <!-- <a href="#" class="button">Get the App!</a> -->
                     </div>
 
-                    <div class="home__img">
-                        <img src="assets/img/phoneimg.png" alt="">
+                    <div class="home__img double__img-container img__change">
+                        <img class="double__img-left" src="assets/img/R_live1_left.png" alt="">
+                        <img class="double__img-right" src="assets/img/R_live2_right.png" alt="">
                     </div>
                 </div>
             </section>
 
-            <!--========== LOOK AROUND ==========changes in the next line-->
-            <section class="share section bd-container" >
+            <!--========== LOOK AROUND ==========-->
+            <section class="share section bd-container" id="check">
                 <div class="share__container bd-grid">
                     <div class="share__data">
-                        <h2 class="section-title-center">Look Around</h2>
+                        <h2 class="section-title-center">Check Around</h2>
                         <p class="share__description">Always know whats happening on the beach! Best hotels, restaurants, all contests, best offers and much more!</p>
                         <a href="#" class="button">Get the App!</a>
                     </div>
 
-                    <div class="share__img">
-                        <img src="assets/img/phoneimg.png" alt="">
+                    <div class="share__img img__change">
+                        <img src="assets/img/R_check_left.png" alt="">
                     </div>
                 </div>
             </section>
 
-            <!-- ========== MEET PEOPLE ==========
-            <section class="decoration section bd-container" id="decoration">
-                <h2 class="section-title">Meet new People</h2>
-                <div class="decoration__container bd-grid">
-                    <div class="decoration__data">
-                        <img src="assets/img/decoration1.png" alt="" class="decoration__img">
-                        <h3 class="decoration__title">Christmas Bells</h3>
-                        <a href="#" class="button button-link">Go Shopping</a>
-                    </div>
-
-                    <div class="decoration__data">
-                        <img src="assets/img/decoration2.png" alt="" class="decoration__img">
-                        <h3 class="decoration__title">Christmas Candies</h3>
-                        <a href="#" class="button button-link">Go Shopping</a>
-                    </div>
-
-                    <div class="decoration__data">
-                        <img src="assets/img/decoration3.png" alt="" class="decoration__img">
-                        <h3 class="decoration__title">Christmas Trees</h3>
-                        <a href="#" class="button button-link">Go Shopping</a>
-                    </div>
-                </div>
-            </section> -->
-
-            <!--========== MEET OUR TEAM ==========-->
-            <section class="accessory section bd-container" id="accessory">
+            <!--========== OUR TEAM ==========-->
+            <section class="profiles section bd-container" id="team">
                 <h2 class="section-title">Our Team</h2>
-
-                <div class="accessory__container bd-grid">
-                    <div class="accessory__content">
-                        <img src="assets/img/profile.png" alt="" class="accessory__img">
-                        <h3 class="accessory__title">Name Lastname</h3>
-                        <span class="accessory__category">Designation/Role</span>
-                        <a href="#" class="button accessory__button"><i class='bx bxl-linkedin'></i></a>
+                
+                <div class="profiles__container bd-grid">
+                    <div class="profiles__content">
+                        <img src="assets/img/1622952808461.jpg" alt="" class="profiles__img">
+                        <h3 class="profiles__title">Gaurav Kumar</h3>
+                        <span class="profiles__category">App Developer</span>
+                        <a href="https://www.linkedin.com/in/gaurav-726239157/" target="_blank" class="button profiles__button"><i class='bx bxl-linkedin'></i></a>
                     </div>
 
-                    <div class="accessory__content">
-                        <img src="assets/img/profile.png" alt="" class="accessory__img">
-                        <h3 class="accessory__title">Name Lastname</h3>
-                        <span class="accessory__category">Designation/Role</span>
-                        <a href="#" class="button accessory__button"><i class='bx bxl-linkedin'></i></a>
+                    <div class="profiles__content">
+                        <img src="assets/img/1613765346133.jpg" alt="" class="profiles__img">
+                        <h3 class="profiles__title">Niloy Sikdar</h3>
+                        <span class="profiles__category">App Developer</span>
+                        <a href="https://www.linkedin.com/in/niloysikdar/" target="_blank" class="button profiles__button"><i class='bx bxl-linkedin'></i></a>
                     </div>
 
-                    <div class="accessory__content">
-                        <img src="assets/img/profile.png" alt="" class="accessory__img">
-                        <h3 class="accessory__title">Name Lastname</h3>
-                        <span class="accessory__category">Designation/Role</span>
-                        <a href="#" class="button accessory__button"><i class='bx bxl-linkedin'></i></a>
+                    <div class="profiles__content">
+                        <img src="assets/img/74862082.jpg" alt="" class="profiles__img">
+                        <h3 class="profiles__title">Ojaswi Singh</h3>
+                        <span class="profiles__category">Frontend Deveveloper</span>
+                        <a href="https://www.linkedin.com/in/ojaswi-singh-102613197/" target="_blank" class="button profiles__button"><i class='bx bxl-linkedin'></i></a>
                     </div>
 
-                    <div class="accessory__content">
-                        <img src="assets/img/profile.png" alt="" class="accessory__img">
-                        <h3 class="accessory__title">Name Lastname</h3>
-                        <span class="accessory__category">Designation/Role</span>
-                        <a href="#" class="button accessory__button"><i class='bx bxl-linkedin'></i></a>
+                    <div class="profiles__content">
+                        <img src="assets/img/72806498.jpg" alt="" class="profiles__img">
+                        <h3 class="profiles__title">Parth Chadha</h3>
+                        <span class="profiles__category">Product Manager</span>
+                        <a href="https://www.linkedin.com/in/itsme-parth/" target="_blank" class="button profiles__button"><i class='bx bxl-linkedin'></i></a>
                     </div>
-
-                    <div class="accessory__content">
-                        <img src="assets/img/profile.png" alt="" class="accessory__img">
-                        <h3 class="accessory__title">Name Lastname</h3>
-                        <span class="accessory__category">Designation/Role</span>
-                        <a href="#" class="button accessory__button"><i class='bx bxl-linkedin'></i></a>
+    
+                    <div class="profiles__content">
+                        <img src="assets/img/Behance_DP_1.png" alt="" class="profiles__img">
+                        <h3 class="profiles__title">Suchit Pant</h3>
+                        <span class="profiles__category">UI/UX Designer</span>
+                        <a href="https://www.linkedin.com/in/shuchit-pant-948a0b190/" target="_blank" class="button profiles__button"><i class='bx bxl-linkedin'></i></a>
+                    </div>
+                    
+                    <div class="profiles__content">
+                        <img src="assets/img/v15899r0.jpg" alt="" class="profiles__img">
+                        <h3 class="profiles__title">Raajveer Khattar</h3>
+                        <span class="profiles__category">Video Editor</span>
+                        <a href="https://www.linkedin.com/in/raajveer-khattar-b496a21a6/" target="_blank" class="button profiles__button"><i class='bx bxl-linkedin'></i></a>
                     </div>
                 </div>
             </section>
-
-            <!-- ========== SEND GIFT ==========
-            <section class="send section">
-                <div class="send__container bd-container bd-grid">
-                    <div class="send__content">
-                        <h2 class="section-title-center send__title">Send Gift Now</h2>
-                        <p class="send__description">Start giving away before the holidays are over. Write the home address of the person who will send the gift.</p>
-                        <form action="">
-                            <div class="send__direction">
-                                <input type="text" placeholder="House address" class="send__input">
-                                <a href="#" class="button">Send</a>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="send__img">
-                        <img src="assets/img/send.png" alt="">
-                    </div>
-                </div>
-            </section> -->
         </main>
 
         <!--========== FOOTER ==========-->
         <footer class="footer section">
             <div class="footer__container bd-container bd-grid">
-                <div class="footer__content">
-                    <h3 class="footer__title">
-                        <a href="#" class="footer__logo">Christmas Gift</a>
-                    </h3>
-                    <p class="footer__description">I sent a gift and it gives <br> happiness</p>
-                </div>
-
-                <div class="footer__content">
-                    <h3 class="footer__title">Our Services</h3>
-                    <ul>
-                        <li><a href="#" class="footer__link">Pricing </a></li>
-                        <li><a href="#" class="footer__link">Discounts</a></li>
-                        <li><a href="#" class="footer__link">Shipping mode</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer__content">
-                    <h3 class="footer__title">Our Company</h3>
-                    <ul>
-                        <li><a href="#" class="footer__link">Blog</a></li>
-                        <li><a href="#" class="footer__link">About us</a></li>
-                        <li><a href="#" class="footer__link">Our mision</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer__content">
-                    <h3 class="footer__title">Social</h3>
-                    <a href="#" class="footer__social"><i class='bx bxl-facebook-circle '></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-instagram-alt'></i></a>
-                </div>
+                <p class="footer__copy">&#169; 2021 All rights reserved</p>
             </div>
-
-            <p class="footer__copy">&#169; 2021 All right reserved</p>
         </footer>
 
         <!--========== SCROLL REVEAL ==========-->

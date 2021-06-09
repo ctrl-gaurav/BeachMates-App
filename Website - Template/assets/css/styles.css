@@ -6,9 +6,6 @@
   --header-height: 3rem;
 
   /*========== Colors ==========*/
-  /* App Yellow: #FDE5A7, App Dark Yellow: #FFC144, 
-  App Blue: #BBE5E5, App Dark Blue: #33A6F5,
-  Logo Back: #FFE2EA, Logo Ocean: #5CFFE6, Logo Board: */
   --first-color: #33a6f5;
   --first-color-alt: #2c5cc4;
   --first-color-send: #5cffe6;
@@ -17,14 +14,6 @@
   --text-color-light: #8f8a8a;
   --body-color: #fde5a7;
   --container-color: #fff;
-  /* --first-color: #da2535;
-  --first-color-alt: #c42130;
-  --first-color-send: #de3b49;
-  --title-color: #161212;
-  --text-color: #5b5757;
-  --text-color-light: #8f8a8a;
-  --body-color: #fefbfb;
-  --container-color: #fff; */
 
   /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
@@ -130,9 +119,14 @@ img {
   height: auto;
 }
 
+.img__change {
+  max-width: 130% !important;
+  height: auto !important;
+}
+
 /*========== CLASS CSS ==========*/
 .section {
-  padding: 4rem 0 2rem;
+  padding: 7rem 0 2rem;
 }
 
 .section-title,
@@ -339,39 +333,13 @@ img {
   justify-self: center;
 }
 
-/*========== DECORATION ==========*/
-.decoration__container {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-.decoration__data {
-  text-align: center;
-  padding: 1rem 1rem 2rem;
-  background-color: var(--container-color);
-  box-shadow: 0 2px 6px rgba(65, 11, 16, 0.15);
-  border-radius: 1rem;
-}
-
-.decoration__data:hover {
-  box-shadow: 0 3px 12px rgba(65, 11, 16, 0.15);
-}
-
-.decoration__img {
-  width: 180px;
-}
-
-.decoration__title {
-  font-size: var(--h3-font-size);
-  margin-bottom: var(--mb-1);
-}
-
-/*========== ACCESSORIES ==========*/
-.accessory__container {
+/*========== TEAM PROFILES ==========*/
+.profiles__container {
   grid-template-columns: repeat(2, 1fr);
   padding-bottom: 2rem;
 }
 
-.accessory__content {
+.profiles__content {
   position: relative;
   display: grid;
   padding: 0.25rem 0.75rem 0.75rem;
@@ -380,37 +348,37 @@ img {
   border-radius: 1rem;
 }
 
-.accessory__content:hover {
+.profiles__content:hover {
   box-shadow: 0 3px 12px rgba(65, 11, 16, 0.15);
 }
 
-.accessory__img {
+.profiles__img {
   width: 110px;
   justify-self: center;
   margin-bottom: 0.25rem;
 }
 
-.accessory__title,
-.accessory__category {
+.profiles__title,
+.profiles__category {
   text-align: center;
 }
 
-.accessory__title {
+.profiles__title {
   font-size: var(--normal-font-size);
 }
 
-.accessory__category {
+.profiles__category {
   font-size: var(--small-font-size);
   margin-bottom: var(--mb-1);
   color: var(--text-color-light);
 }
 
-.accessory__preci {
+.profiles__preci {
   font-weight: var(--font-semi-bold);
   color: var(--title-color);
 }
 
-.accessory__button {
+.profiles__button {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -420,49 +388,13 @@ img {
   border-radius: 1rem 0 1rem 0;
 }
 
-/*========== SEND GIFT ==========*/
-.send {
-  background-color: var(--first-color-send);
-}
-
-.send__title,
-.send__description {
-  color: #fff;
-}
-
-.send__description {
-  text-align: center;
-  margin-bottom: var(--mb-4);
-}
-
-.send__direction {
-  display: flex;
-  justify-content: space-between;
-  background-color: #fff;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-}
-
-.send__input {
-  width: 70%;
-  outline: none;
-  border: none;
-  font-size: var(--normal-font-size);
-  font-family: var(--body-font);
-}
-
-.send__input::placeholder {
-  font-family: var(--body-font);
-}
-
-.send__img {
-  width: 280px;
-  justify-self: center;
-}
-
 /*========== FOOTER ==========*/
 .footer__container {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 0;
+  padding: 0;
+  /*grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));*/
+  width: 100%;
+  /* box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1); */
 }
 
 .footer__logo {
@@ -509,8 +441,7 @@ img {
 
 /* For full-screen images on small screens */
 @media screen and (max-width: 359px) {
-  .home__img,
-  .send__img {
+  .home__img {
     width: 100%;
   }
 
@@ -521,14 +452,14 @@ img {
 
 @media screen and (min-width: 576px) {
   .home__container,
-  .share__container,
-  .send__container {
+  .share__container {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
   }
 
   .home__container {
     padding: 5rem 0 0;
+    margin-bottom: 20px;
   }
 
   .home__img {
@@ -536,13 +467,11 @@ img {
   }
 
   .section-title-center,
-  .share__data,
-  .send__description {
+  .share__data {
     text-align: initial;
   }
 
-  .home__img,
-  .send__img {
+  .home__img {
     width: 100%;
   }
 
@@ -561,7 +490,7 @@ img {
   }
 
   .section {
-    padding-top: 7rem;
+    padding-top: 5rem;
   }
 
   .nav {
@@ -595,37 +524,29 @@ img {
     padding: 0 2rem;
   }
 
-  .accessory__container {
+  .profiles__container {
     grid-template-columns: repeat(3, 224px);
     justify-content: center;
   }
 
-  .accessory__content {
+  .profiles__content {
     padding: 0.5rem 1.5rem 1.5rem;
   }
 
-  .accessory__img {
-    width: 120px;
+  .profiles__img {
+    width: 200px;
+    margin-top: var(--mb-1);
     margin-bottom: var(--mb-1);
+    border-radius: 10%;
   }
 
-  .accessory__title,
-  .accessory__category {
+  .profiles__title,
+  .profiles__category {
     text-align: initial;
   }
 
-  .accessory__button {
+  .profiles__button {
     padding: 0.75rem;
-  }
-
-  .send {
-    background: none;
-  }
-
-  .send__container {
-    background-color: var(--first-color-send);
-    padding: 2rem;
-    border-radius: 1.5rem;
   }
 }
 
@@ -635,18 +556,38 @@ img {
     margin-right: auto;
   }
 
-  .home__img,
-  .send__img {
+  .home__img {
     width: 469px;
+  }
+
+  .double__img-container {
+    display: flex;
+    object-fit: cover;
+  }
+
+  .double__img-left {
+    position: relative;
+    top: 0;
+    left: -150px;
+  }
+
+  .double__img-right {
+    position: absolute;
+    top: 0;
+    left: 150px;
   }
 
   .share__img {
     width: 469px;
+    object-fit: cover;
   }
 
   .home__container,
-  .share__container,
-  .send__container {
+  .share__container {
     column-gap: 5rem;
+  }
+
+  footer {
+    box-shadow: -1px 0 10px rgba(0, 0, 0, 0.2);
   }
 }
