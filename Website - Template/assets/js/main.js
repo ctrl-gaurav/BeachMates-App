@@ -70,6 +70,10 @@ const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
 const iconTheme = "bx-toggle-right";
 
+//setting default as dark theme
+localStorage.setItem("selected-theme", "dark");
+localStorage.setItem("selected-icon", "light");
+
 // Previously selected topic (if user selected)
 const selectedTheme = localStorage.getItem("selected-theme");
 const selectedIcon = localStorage.getItem("selected-icon");
