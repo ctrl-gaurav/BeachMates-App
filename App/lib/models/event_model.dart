@@ -5,7 +5,7 @@ class EventModel {
   final String title;
   final String postedBy;
   final String description;
-  final int peopleCount;
+  final List<String> allpeople;
   final List<CommentModel> comments;
   final String category;
 
@@ -13,7 +13,7 @@ class EventModel {
     @required this.title,
     @required this.postedBy,
     @required this.description,
-    @required this.peopleCount,
+    @required this.allpeople,
     @required this.comments,
     @required this.category,
   });
@@ -23,8 +23,9 @@ class EventModel {
       "title": title,
       "postedBy": postedBy,
       "description": description,
-      "peopleCount": peopleCount,
+      "allpeople": allpeople,
       "comments": comments,
+      "category": category,
     };
   }
 }
