@@ -8,7 +8,6 @@ import 'package:b2b/screens/login_signup/components/already_have_an_account_ache
 import 'package:b2b/screens/login_signup/components/rounded_button.dart';
 import 'package:b2b/screens/login_signup/components/rounded_input_field.dart';
 import 'package:b2b/screens/login_signup/components/rounded_password_field.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,7 +18,6 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-
   final _auth = FirebaseAuth.instance;
   String email;
   String password;
@@ -34,7 +32,6 @@ class _BodyState extends State<Body> {
         color: Colors.red,
         size: 50.0,
       ),
-
       child: Background(
         child: SingleChildScrollView(
           child: Column(
@@ -53,7 +50,10 @@ class _BodyState extends State<Body> {
               SizedBox(height: 10),
               Text(
                 "let's go for adventure together",
-                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.orangeAccent),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.orangeAccent),
               ),
               SizedBox(height: 10),
 
@@ -76,12 +76,13 @@ class _BodyState extends State<Body> {
                   });
                   try {
                     UserCredential newUser =
-                    await _auth.createUserWithEmailAndPassword(
-                        email: email, password: password);
+                        await _auth.createUserWithEmailAndPassword(
+                            email: email, password: password);
                     if (newUser != null) {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => TabContainerIndexedStack()),
+                        MaterialPageRoute(
+                            builder: (context) => TabContainerIndexedStack()),
                       );
                     }
                   } catch (e) {

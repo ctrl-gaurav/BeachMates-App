@@ -5,12 +5,10 @@ import 'package:b2b/screens/login_signup/components/already_have_an_account_ache
 import 'package:b2b/screens/login_signup/components/rounded_button.dart';
 import 'package:b2b/screens/login_signup/components/rounded_input_field.dart';
 import 'package:b2b/screens/login_signup/components/rounded_password_field.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:b2b/widgets/tab_bar.dart';
-
 
 class Body extends StatefulWidget {
   const Body({
@@ -22,7 +20,6 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-
   final _auth = FirebaseAuth.instance;
   String email;
   String password;
@@ -33,7 +30,7 @@ class _BodyState extends State<Body> {
     Size size = MediaQuery.of(context).size;
     return ModalProgressHUD(
       progressIndicator: SpinKitDoubleBounce(
-        color: Colors.red,
+        color: Colors.blue,
         size: 50.0,
       ),
       inAsyncCall: showSpinner,
@@ -42,7 +39,6 @@ class _BodyState extends State<Body> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-
               SizedBox(height: size.height * 0.03),
               // SvgPicture.asset(
               //   "assets/icons/login.svg",
@@ -52,7 +48,10 @@ class _BodyState extends State<Body> {
               SizedBox(height: 10),
               Text(
                 "let's go for adventure together",
-                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.orangeAccent),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.orangeAccent),
               ),
               SizedBox(height: 10),
               RoundedInputField(
@@ -80,7 +79,8 @@ class _BodyState extends State<Body> {
                       // Navigator.pushNamed(context, TabContainerIndexedStack.id);
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => TabContainerIndexedStack()),
+                        MaterialPageRoute(
+                            builder: (context) => TabContainerIndexedStack()),
                       );
                     }
                   } catch (e) {

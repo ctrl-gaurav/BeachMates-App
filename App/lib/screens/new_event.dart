@@ -4,6 +4,8 @@ import 'package:b2b/models/event_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class NewEvent extends StatefulWidget {
   @override
@@ -25,6 +27,8 @@ class _NewEventState extends State<NewEvent> {
     "Jet Ski",
     "Sand Castle"
   ];
+
+  bool showSpinner = false;
 
   @override
   void initState() {
@@ -49,202 +53,218 @@ class _NewEventState extends State<NewEvent> {
           backgroundColor: kblue,
           elevation: 0,
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                width: size.width,
-                padding: EdgeInsets.only(
-                  left: 25,
-                  right: 25,
-                  bottom: 25,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
+        body: ModalProgressHUD(
+          progressIndicator: SpinKitDoubleBounce(
+            color: Colors.blue,
+            size: 50.0,
+          ),
+          inAsyncCall: showSpinner,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  width: size.width,
+                  padding: EdgeInsets.only(
+                    left: 25,
+                    right: 25,
+                    bottom: 25,
                   ),
-                  color: kblue,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Text(
-                        "Add your event here",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    ),
+                    color: kblue,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          "Add your event here",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ),
-                    AwesomeDropDown(
-                      isPanDown: true,
-                      dropDownBorderRadius: 10,
-                      dropDownTopBorderRadius: 10,
-                      dropDownBottomBorderRadius: 10,
-                      dropDownBGColor: kblue,
-                      dropDownOverlayBGColor: kblue,
-                      dropDownListTextStyle: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
+                      AwesomeDropDown(
+                        isPanDown: true,
+                        dropDownBorderRadius: 10,
+                        dropDownTopBorderRadius: 10,
+                        dropDownBottomBorderRadius: 10,
+                        dropDownBGColor: kblue,
+                        dropDownOverlayBGColor: kblue,
+                        dropDownListTextStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                        ),
+                        selectedItemTextStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                        dropDownList: keys,
+                        dropDownIcon: Icon(
+                          Icons.arrow_drop_down,
+                          color: Colors.grey,
+                          size: 23,
+                        ),
+                        selectedItem: selectedKey,
+                        onDropDownItemClick: (selectedItem) {
+                          selectedKey = selectedItem;
+                        },
+                        dropStateChanged: (isOpened) {
+                          isDropDownOpened = isOpened;
+                          if (!isOpened) {
+                            isBackPressedOrTouchedOutSide = false;
+                          }
+                        },
                       ),
-                      selectedItemTextStyle: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
+                    ],
+                  ),
+                ),
+                SizedBox(height: 30),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: TextFormField(
+                    controller: titleController,
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.black,
+                    ),
+                    cursorColor: Colors.black,
+                    decoration: InputDecoration(
+                      fillColor: kyellow,
+                      filled: true,
+                      contentPadding: EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 15.0,
                       ),
-                      dropDownList: keys,
-                      dropDownIcon: Icon(
-                        Icons.arrow_drop_down,
-                        color: Colors.grey,
-                        size: 23,
+                      hintText: "An interesting title",
+                      hintStyle: TextStyle(
+                        color: Colors.black54,
                       ),
-                      selectedItem: selectedKey,
-                      onDropDownItemClick: (selectedItem) {
-                        selectedKey = selectedItem;
-                      },
-                      dropStateChanged: (isOpened) {
-                        isDropDownOpened = isOpened;
-                        if (!isOpened) {
-                          isBackPressedOrTouchedOutSide = false;
-                        }
-                      },
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: TextFormField(
-                  controller: titleController,
-                  style: TextStyle(
-                    fontSize: 22,
-                    color: Colors.black,
-                  ),
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
-                    fillColor: kyellow,
-                    filled: true,
-                    contentPadding: EdgeInsets.symmetric(
-                      vertical: 10.0,
-                      horizontal: 15.0,
-                    ),
-                    hintText: "An interesting title",
-                    hintStyle: TextStyle(
-                      color: Colors.black54,
-                    ),
-                    errorStyle: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                    disabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
+                      errorStyle: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: TextFormField(
-                  controller: descriptionController,
-                  maxLines: 4,
-                  style: TextStyle(
-                    fontSize: 22,
-                    color: Colors.black,
+                SizedBox(height: 30),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: TextFormField(
+                    controller: descriptionController,
+                    maxLines: 4,
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.black,
+                    ),
+                    cursorColor: Colors.black,
+                    decoration: InputDecoration(
+                      fillColor: kyellow,
+                      filled: true,
+                      contentPadding: EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 15.0,
+                      ),
+                      hintText: "The description to your post",
+                      hintStyle: TextStyle(
+                        color: Colors.black54,
+                      ),
+                      errorStyle: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
                   ),
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
-                    fillColor: kyellow,
-                    filled: true,
-                    contentPadding: EdgeInsets.symmetric(
-                      vertical: 10.0,
-                      horizontal: 15.0,
+                ),
+                SizedBox(height: 30),
+                TextButton(
+                  onPressed: () async {
+                    if (titleController.text.trim() != "" &&
+                        descriptionController.text.trim() != "") {
+                      setState(() {
+                        showSpinner = true;
+                      });
+                      try {
+                        await addEvent();
+                      } catch (e) {
+                        print("Error while Adding");
+                      }
+                      setState(() {
+                        showSpinner = false;
+                      });
+                    }
+                  },
+                  style: ButtonStyle(
+                    padding: MaterialStateProperty.all(
+                      EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                     ),
-                    hintText: "The description to your post",
-                    hintStyle: TextStyle(
-                      color: Colors.black54,
+                    backgroundColor: MaterialStateProperty.all(
+                      kblue,
                     ),
-                    errorStyle: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                    disabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
+                  ),
+                  child: Text(
+                    "POST",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 30),
-              TextButton(
-                onPressed: () {
-                  try {
-                    addEvent();
-                  } catch (e) {
-                    print("Error while Adding");
-                  }
-                },
-                style: ButtonStyle(
-                  padding: MaterialStateProperty.all(
-                    EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                  ),
-                  backgroundColor: MaterialStateProperty.all(
-                    kblue,
-                  ),
-                ),
-                child: Text(
-                  "POST",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 25,
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -253,7 +273,7 @@ class _NewEventState extends State<NewEvent> {
 
   addEvent() async {
     String username = FirebaseAuth.instance.currentUser.email;
-    String id = titleController.text + username;
+    String id = "${titleController.text}-$username";
     Map<String, dynamic> newEvent = EventModel(
       id: id,
       title: titleController.text,
