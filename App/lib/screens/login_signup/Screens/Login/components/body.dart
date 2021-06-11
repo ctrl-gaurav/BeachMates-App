@@ -42,16 +42,19 @@ class _BodyState extends State<Body> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+
+              SizedBox(height: size.height * 0.03),
+              // SvgPicture.asset(
+              //   "assets/icons/login.svg",
+              //   height: size.height * 0.35,
+              // ),
+              Image.asset('assets/images/logo.png'),
+              SizedBox(height: 10),
               Text(
-                "LOGIN",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                "let's go for adventure together",
+                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.orangeAccent),
               ),
-              SizedBox(height: size.height * 0.03),
-              SvgPicture.asset(
-                "assets/icons/login.svg",
-                height: size.height * 0.35,
-              ),
-              SizedBox(height: size.height * 0.03),
+              SizedBox(height: 10),
               RoundedInputField(
                 hintText: "Your Email",
                 onChanged: (value) {
@@ -85,6 +88,7 @@ class _BodyState extends State<Body> {
                   }
                 },
               ),
+
               SizedBox(height: size.height * 0.03),
               AlreadyHaveAnAccountCheck(
                 press: () {

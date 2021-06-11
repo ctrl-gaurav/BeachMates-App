@@ -4,7 +4,6 @@ import 'package:b2b/screens/login_signup/Screens/Signup/signup_screen.dart';
 import 'package:b2b/screens/login_signup/Screens/Welcome/components/background.dart';
 import 'package:b2b/screens/login_signup/components/rounded_button.dart';
 import 'package:b2b/screens/login_signup/constants.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -16,18 +15,16 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Image.asset('assets/images/logo.png'),
+            SizedBox(height: 10),
             Text(
-              "WELCOME TO EDU",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              "let's go for adventure together",
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.orangeAccent),
             ),
-            SizedBox(height: size.height * 0.05),
-            SvgPicture.asset(
-              "assets/icons/chat.svg",
-              height: size.height * 0.45,
-            ),
-            SizedBox(height: size.height * 0.05),
+            SizedBox(height: 10),
             RoundedButton(
               text: "LOGIN",
+              textColor: Colors.black,
               press: () {
                 Navigator.push(
                   context,

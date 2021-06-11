@@ -4,6 +4,7 @@ import 'package:b2b/screens/live_events_screen.dart';
 import 'package:b2b/screens/third_screen/ThirdScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Tabbar extends StatelessWidget {
   @override
@@ -63,21 +64,33 @@ class _TabContainerIndexedStackState extends State<TabContainerIndexedStack> {
             });
           },
           items: <Widget>[
-            Icon(
-              Icons.home,
-              size: 30,
-              color: Colors.white,
+            // Icon(
+            //   Icons.home,
+            //   size: 30,
+            //   color: Colors.white,
+            // ),
+            SvgPicture.asset(
+              "assets/icons/image13.svg",
+              height: 50,
             ),
-            Icon(
-              Icons.view_list_rounded,
-              size: 30,
-              color: Colors.white,
+            SvgPicture.asset(
+              "assets/icons/image10.svg",
+              height: 10,
             ),
-            Icon(
-              Icons.save_rounded,
-              size: 30,
-              color: Colors.white,
+            SvgPicture.asset(
+              "assets/icons/image15.svg",
+              height: 10,
             ),
+            // Icon(
+            //   Icons.view_list_rounded,
+            //   size: 30,
+            //   color: Colors.white,
+            // ),
+            // Icon(
+            //   Icons.save_rounded,
+            //   size: 30,
+            //   color: Colors.white,
+            // ),
           ],
         ),
       ),

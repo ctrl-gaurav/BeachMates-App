@@ -45,10 +45,18 @@ class _BodyState extends State<Body> {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               SizedBox(height: size.height * 0.03),
-              SvgPicture.asset(
-                "assets/icons/signup.svg",
-                height: size.height * 0.35,
+              // SvgPicture.asset(
+              //   "assets/icons/signup.svg",
+              //   height: size.height * 0.35,
+              // ),
+              Image.asset('assets/images/logo.png'),
+              SizedBox(height: 10),
+              Text(
+                "let's go for adventure together",
+                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.orangeAccent),
               ),
+              SizedBox(height: 10),
+
               RoundedInputField(
                 hintText: "Your Email",
                 onChanged: (value) {
