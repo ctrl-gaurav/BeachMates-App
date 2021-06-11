@@ -3,7 +3,6 @@ import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:b2b/screens/third_screen/data.dart';
 import 'package:b2b/screens/third_screen/colors.dart';
 import 'package:b2b/constants/colors.dart';
-import 'package:b2b/constants/live_events_categories.dart';
 
 class ExplorePage extends StatefulWidget {
   @override
@@ -28,7 +27,6 @@ class _ExplorePageState extends State<ExplorePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: getBody(),
     );
   }
@@ -40,42 +38,46 @@ class _ExplorePageState extends State<ExplorePage>
       child: SingleChildScrollView(
         child: Column(
           children: [
-          Container(
-          width: size.width,
-          padding: EdgeInsets.only(
-            top: 15,
-            right: 25,
-            bottom: 20,
-            left: 25,
-          ),
-          decoration: BoxDecoration(
-            color: kyellow,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
-            ),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 30,),
-              Text(
-                "Meet\nNew\nPeople",
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 9,
+            Container(
+              width: size.width,
+              padding: EdgeInsets.only(
+                top: 15,
+                right: 25,
+                bottom: 20,
+                left: 25,
+              ),
+              decoration: BoxDecoration(
+                color: kyellow,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
                 ),
               ),
-              SizedBox(height: 20,),
-            ],
-          ),
-        ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    "Meet\nNew\nPeople",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 9,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                ],
+              ),
+            ),
             Container(
-              height: size.height*0.60,
+              height: size.height * 0.60,
               child: TinderSwapCard(
                 totalNum: itemLength,
-                maxWidth: MediaQuery.of(context).size.width*0.95,
+                maxWidth: MediaQuery.of(context).size.width * 0.95,
                 maxHeight: MediaQuery.of(context).size.height * 0.60,
                 minWidth: MediaQuery.of(context).size.width * 0.70,
                 minHeight: MediaQuery.of(context).size.height * 0.45,
@@ -131,7 +133,8 @@ class _ExplorePageState extends State<ExplorePage>
                                                 style: TextStyle(
                                                     color: white,
                                                     fontSize: 24,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                             ],
                                           ),
@@ -233,7 +236,8 @@ class _ExplorePageState extends State<ExplorePage>
                   ),
                 ),
                 cardController: controller = CardController(),
-                swipeUpdateCallback: (DragUpdateDetails details, Alignment align) {
+                swipeUpdateCallback:
+                    (DragUpdateDetails details, Alignment align) {
                   /// Get swiping card's alignment
                   if (align.x < 0) {
                     //Card is LEFT swiping
@@ -242,7 +246,8 @@ class _ExplorePageState extends State<ExplorePage>
                   }
                   // print(itemsTemp.length);
                 },
-                swipeCompleteCallback: (CardSwipeOrientation orientation, int index) {
+                swipeCompleteCallback:
+                    (CardSwipeOrientation orientation, int index) {
                   /// Get orientation & index of swiped card!
                   if (index == (itemsTemp.length - 1)) {
                     setState(() {
