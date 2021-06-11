@@ -135,6 +135,90 @@ class _ExplorePageState extends State<ExplorePage>
                                               ),
                                             ],
                                           ),
+
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    shape: BoxShape.circle),
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                "My Interests",
+                                                style: TextStyle(
+                                                  color: white,
+                                                  fontSize: 16,
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Row(
+                                            children: List.generate(
+                                                itemsTemp[index]['likes'].length,
+                                                (indexLikes) {
+                                              if (indexLikes == 0) {
+                                                return Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(right: 8),
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                            color: white, width: 2),
+                                                        borderRadius:
+                                                            BorderRadius.circular(30),
+                                                        color:
+                                                            white.withOpacity(0.4)),
+                                                    child: Padding(
+                                                      padding: const EdgeInsets.only(
+                                                          top: 3,
+                                                          bottom: 3,
+                                                          left: 10,
+                                                          right: 10),
+                                                      child: Text(
+                                                        itemsTemp[index]['likes']
+                                                            [indexLikes],
+                                                        style:
+                                                            TextStyle(color: white),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                              return Padding(
+                                                padding:
+                                                    const EdgeInsets.only(right: 8),
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(30),
+                                                      color: white.withOpacity(0.2)),
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.only(
+                                                        top: 3,
+                                                        bottom: 3,
+                                                        left: 10,
+                                                        right: 10),
+                                                    child: Text(
+                                                      itemsTemp[index]['likes']
+                                                          [indexLikes],
+                                                      style: TextStyle(color: white),
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            }),
+                                          )
                                         ],
                                       ),
                                     ),
