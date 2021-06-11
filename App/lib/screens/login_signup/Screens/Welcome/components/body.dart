@@ -8,7 +8,7 @@ import 'package:b2b/screens/login_signup/constants.dart';
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     // This size provide us total height and width of our screen
     return Background(
       child: SingleChildScrollView(
@@ -19,7 +19,10 @@ class Body extends StatelessWidget {
             SizedBox(height: 10),
             Text(
               "let's go for adventure together",
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.orangeAccent),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.orangeAccent),
             ),
             SizedBox(height: 10),
             RoundedButton(
