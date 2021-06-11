@@ -39,8 +39,7 @@ class _LiveEventsState extends State<LiveEvents> {
                         return LiveEventsCard(
                           size: size,
                           imagepath: "assets/images/volleyball.png",
-                          title: eventModel.title,
-                          postedBy: eventModel.postedBy,
+                          eventModel: eventModel,
                         );
                       },
                     );
