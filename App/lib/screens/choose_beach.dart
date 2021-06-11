@@ -49,6 +49,7 @@ class ChooseBeach extends StatelessWidget {
                       (name) => beachButton(
                         context: context,
                         text: name,
+                        size: size,
                       ),
                     )
                     .toList(),
@@ -63,6 +64,7 @@ class ChooseBeach extends StatelessWidget {
   Widget beachButton({
     @required BuildContext context,
     @required String text,
+    @required Size size,
   }) {
     return GestureDetector(
       onTap: () {
@@ -75,7 +77,11 @@ class ChooseBeach extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 12),
-        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+        padding: EdgeInsets.symmetric(
+          vertical: 15,
+          horizontal: 20,
+        ),
+        width: size.width * 0.8,
         decoration: BoxDecoration(
           color: kyellow,
           borderRadius: BorderRadius.circular(10),
