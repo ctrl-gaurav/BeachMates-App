@@ -69,18 +69,26 @@ class _TabContainerIndexedStackState extends State<TabContainerIndexedStack> {
             //   size: 30,
             //   color: Colors.white,
             // ),
-            SvgPicture.asset(
-              "assets/icons/image13.svg",
-              height: 50,
+            Container(
+              width: 30,
+              height: 30,
+              child: Image.asset("assets/images/image13.png"),
             ),
-            SvgPicture.asset(
-              "assets/icons/image10.svg",
-              height: 10,
+            Container(
+              width: 30,
+              height: 30,
+              child: Image.asset("assets/images/image10.png"),
             ),
-            SvgPicture.asset(
-              "assets/icons/image15.svg",
-              height: 10,
+            Container(
+              width: 30,
+              height: 30,
+              child: Image.asset("assets/images/image15.png"),
             ),
+
+            // SvgPicture.asset(
+            //   "assets/icons/image15.svg",
+            //   height: 10,
+            // ),
             // Icon(
             //   Icons.view_list_rounded,
             //   size: 30,
