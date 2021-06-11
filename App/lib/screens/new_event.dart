@@ -1,5 +1,8 @@
 import 'package:awesome_dropdown/awesome_dropdown.dart';
 import 'package:b2b/constants/colors.dart';
+import 'package:b2b/models/event_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class NewEvent extends StatefulWidget {
@@ -219,8 +222,11 @@ class _NewEventState extends State<NewEvent> {
               SizedBox(height: 30),
               TextButton(
                 onPressed: () {
-                  print(titleController.text);
-                  print(descriptionController.text);
+                  try {
+                    addEvent();
+                  } catch (e) {
+                    print("Error while Adding");
+                  }
                 },
                 style: ButtonStyle(
                   padding: MaterialStateProperty.all(
@@ -243,5 +249,26 @@ class _NewEventState extends State<NewEvent> {
         ),
       ),
     );
+  }
+
+  addEvent() async {
+    String username = FirebaseAuth.instance.currentUser.email;
+    String id = titleController.text + username;
+    Map<String, dynamic> newEvent = EventModel(
+      id: id,
+      title: titleController.text,
+      postedBy: username,
+      description: descriptionController.text,
+      allpeople: [username],
+      comments: [],
+      category: selectedKey,
+    ).toMap();
+    await FirebaseFirestore.instance
+        .collection("liveEvents")
+        .doc(id)
+        .set(newEvent);
+    print("Done");
+    titleController.text = "";
+    descriptionController.text = "";
   }
 }
