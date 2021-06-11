@@ -23,6 +23,7 @@ Widget detailsHeader({
       ),
     ),
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           children: [
@@ -53,7 +54,7 @@ Widget detailsHeader({
           ],
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 12),
           child: Text(
             eventModel.description,
             style: TextStyle(

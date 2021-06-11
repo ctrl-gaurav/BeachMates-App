@@ -1,3 +1,4 @@
+import 'package:b2b/screens/choose_beach.dart';
 import 'package:flutter/material.dart';
 import 'package:b2b/screens/login_signup/Screens/Login/components/background.dart';
 import 'package:b2b/screens/login_signup/Screens/Signup/signup_screen.dart';
@@ -8,7 +9,6 @@ import 'package:b2b/screens/login_signup/components/rounded_password_field.dart'
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:b2b/widgets/tab_bar.dart';
 
 class Body extends StatefulWidget {
   const Body({
@@ -80,7 +80,8 @@ class _BodyState extends State<Body> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => TabContainerIndexedStack()),
+                          builder: (context) => ChooseBeach(),
+                        ),
                       );
                     }
                   } catch (e) {

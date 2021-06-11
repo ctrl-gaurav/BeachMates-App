@@ -16,13 +16,14 @@ class _LiveEventsState extends State<LiveEvents> {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              liveEventsHeader(size: size, context: context),
-              sortText(text: "Sort by: Newest"),
-              StreamBuilder(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            liveEventsHeader(size: size, context: context),
+            sortText(text: "Sort by: Newest"),
+            Container(
+              height: size.height * 0.5,
+              child: StreamBuilder(
                 stream: FirebaseFirestore.instance
                     .collection("liveEvents")
                     .snapshots(),
@@ -54,30 +55,30 @@ class _LiveEventsState extends State<LiveEvents> {
                   }
                 },
               ),
-              // Column(
-              //   children: [
-              //     LiveEventsCard(
-              //       size: size,
-              //       imagepath: "assets/images/volleyball.png",
-              //       title: "Looking for more players",
-              //       description: "I have a ball and volleyball net",
-              //     ),
-              //     LiveEventsCard(
-              //       size: size,
-              //       imagepath: "assets/images/jetski.png",
-              //       title: "Race Some Jet Skiis",
-              //       description: "Wanna have a  200m Race.",
-              //     ),
-              //     LiveEventsCard(
-              //       size: size,
-              //       imagepath: "assets/images/sandcastle.png",
-              //       title: "Build some Sand Castles",
-              //       description: "Lets build a huge City Fort",
-              //     ),
-              //   ],
-              // ),
-            ],
-          ),
+            ),
+            // Column(
+            //   children: [
+            //     LiveEventsCard(
+            //       size: size,
+            //       imagepath: "assets/images/volleyball.png",
+            //       title: "Looking for more players",
+            //       description: "I have a ball and volleyball net",
+            //     ),
+            //     LiveEventsCard(
+            //       size: size,
+            //       imagepath: "assets/images/jetski.png",
+            //       title: "Race Some Jet Skiis",
+            //       description: "Wanna have a  200m Race.",
+            //     ),
+            //     LiveEventsCard(
+            //       size: size,
+            //       imagepath: "assets/images/sandcastle.png",
+            //       title: "Build some Sand Castles",
+            //       description: "Lets build a huge City Fort",
+            //     ),
+            //   ],
+            // ),
+          ],
         ),
       ),
     );
