@@ -57,7 +57,7 @@ class _ExplorePageState extends State<ExplorePage>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 30,
+                    height: 10,
                   ),
                   Text(
                     "Meet\nNew\nPeople",
