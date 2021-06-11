@@ -4,7 +4,6 @@ import 'package:b2b/screens/live_events_screen.dart';
 import 'package:b2b/screens/third_screen/ThirdScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Tabbar extends StatelessWidget {
   @override
@@ -26,15 +25,15 @@ class TabContainerIndexedStack extends StatefulWidget {
 }
 
 class _TabContainerIndexedStackState extends State<TabContainerIndexedStack> {
-  int tabIndex = 0;
-  int _currentIndex = 0;
+  int tabIndex = 1;
+  int _currentIndex = 1;
   List<Widget> listScreens;
   @override
   void initState() {
     super.initState();
     listScreens = [
-      LiveEvents(),
       SecondScreen(),
+      LiveEvents(),
       ThirdScreen(),
     ];
   }
@@ -47,8 +46,8 @@ class _TabContainerIndexedStackState extends State<TabContainerIndexedStack> {
         body: IndexedStack(
           index: _currentIndex,
           children: [
-            LiveEvents(),
             SecondScreen(),
+            LiveEvents(),
             ThirdScreen(),
           ],
         ),

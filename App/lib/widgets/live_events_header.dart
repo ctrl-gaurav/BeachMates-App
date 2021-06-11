@@ -50,7 +50,7 @@ Widget liveEventsHeader({
                 size: 40,
                 color: Colors.black,
               ),
-              backgroundColor: kyellow,
+              backgroundColor: Color(0xffb7e8e7),
             ),
           ],
         ),
