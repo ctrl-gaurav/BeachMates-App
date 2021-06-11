@@ -71,7 +71,7 @@ class _TabContainerIndexedStackState extends State<TabContainerIndexedStack> {
             Container(
               width: 30,
               height: 30,
-              child: Image.asset("assets/images/image13.png"),
+              child: Image.asset("assets/images/image15.png"),
             ),
             Container(
               width: 30,
@@ -81,7 +81,7 @@ class _TabContainerIndexedStackState extends State<TabContainerIndexedStack> {
             Container(
               width: 30,
               height: 30,
-              child: Image.asset("assets/images/image15.png"),
+              child: Image.asset("assets/images/image13.png"),
             ),
 
             // SvgPicture.asset(
