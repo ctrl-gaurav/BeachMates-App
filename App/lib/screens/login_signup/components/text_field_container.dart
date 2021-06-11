@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:b2b/screens/login_signup/constants.dart';
 
 class TextFieldContainer extends StatelessWidget {
   final Widget child;
