@@ -17,7 +17,7 @@ class _SecondScreenState extends State<SecondScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              liveEventsHeader(size: size),
+              liveEventsHeader(size: size, context: context),
               sortText(text: "Sort by: Newest"),
               Padding(
                 padding: const EdgeInsets.all(28.0),
