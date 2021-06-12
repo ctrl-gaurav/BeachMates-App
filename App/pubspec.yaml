@@ -54,6 +54,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/girls/
+    - assets/images/boys/
     - assets/icons/
   #   - images/a_dot_ham.jpeg
 
